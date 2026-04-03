@@ -40,18 +40,39 @@ Explain the difference between Data Analytics, Data Science, and Artificial Inte
 | **Question** | "Why did sales drop?" | "How many sales next month?" | "Auto-reorder when stock is low" |
 | **Analogy** | Rear-view mirror | Weather forecast | Self-driving car |
 
-**The Matrix (20 min):** Students evaluate 5 scenarios and classify each as Analytics, Data Science, or AI:
-1. Fraud detection system that flags unusual transactions automatically
-2. Monthly sales pivot tables for the finance team
-3. Autonomous vehicle braking system
-4. Predicting customer churn probability next quarter
-5. Generating a bar chart of last year's revenue by region
+**Discussion:**
 
-**Key point:** You cannot build AI without a solid Data Science foundation, and you cannot do Data Science without clean, well-collected data. The hierarchy is a staircase — you cannot skip floors.
+- "If a CEO says 'I want to build a GPT-4 for my company' but all their data is in paper files, where on the hierarchy are they failing?"
+- "If we scanned those papers into PDFs, would that be enough to build an AI tomorrow? Or is there still a 'Cleaning' and 'Analysis' step missing?"
 
-### 🛠️ Hands-On Activity: "The Company Diagnostic" (35 min)
+**Activity:**
 
-**Scenario:** A CEO wants to implement GPT-4 across their company, but all their data is in paper files.
+1. **The Matrix:** Classify each of the following 5 scenarios as Data Analytics, Data Science, or AI — and explain your reasoning:
+   - A bank system that automatically flags unusual transactions in real time
+   - A manager building a monthly pivot table of sales figures
+   - A self-driving car that brakes automatically when it detects an obstacle
+   - A model that predicts which customers are likely to churn next quarter
+   - A dashboard showing last year's revenue broken down by region
+
+2. **The Python Peek (Code Demo):** Run the following code in Colab and observe the difference between reporting and modelling:
+
+```python
+# How we see data vs how the computer sees it
+import pandas as pd
+
+# A simple 'Historical' dataset (Analytics)
+data = {'Month': ['Jan', 'Feb'], 'Sales': [100, 150]}
+df = pd.DataFrame(data)
+print("Analytics: What happened?")
+print(df)
+
+# Predicting (Data Science)
+# Calculate the month-over-month growth rate
+# Sales for Jan: df['Sales'].iloc[0]
+# Sales for Feb: df['Sales'].iloc[1]
+
+growth_rate = (df['Sales'].iloc[1] - df['Sales'].iloc[0]) / df['Sales'].iloc[0]
+print(f"Month-over-month growth rate: {growth_rate:.2%}")
 
 **Discussion Questions:**
 - "If the CEO scans all paper files to PDFs, can they build AI tomorrow? What steps are still missing?"
